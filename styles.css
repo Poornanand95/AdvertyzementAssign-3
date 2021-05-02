@@ -54,12 +54,8 @@ body {
   font-size: 10px;
 }
 
-.hold {
-  border: solid green;
-  background-color: violet;
-}
-
-.dragging {
-  background-color: aqua;
-  opacity: 100%;
+.draggable:hover {
+  background-color: rgb(250, 248, 248);
+  transition: ease-in;
+  cursor: pointer;
 }

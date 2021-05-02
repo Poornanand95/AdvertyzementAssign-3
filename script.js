@@ -1,52 +1,46 @@
-const containers1 = document.getElementsByClassName('container')[0];
-const containers2 = document.getElementsByClassName('container')[1];
-const containers3 = document.getElementsByClassName('container')[2];
 const draggables = document.querySelectorAll('.draggable');
-var dragItem = null;
-// Event listeners for containers
+const containers = document.querySelectorAll('.container');
 
-containers1.addEventListener('dragover', dragOver);
-containers1.addEventListener('dragenter', dragEnter);
-containers1.addEventListener('dragleave', dragLeave);
-containers1.addEventListener('drop', Drop);
+draggables.forEach((draggable) => {
+  draggable.addEventListener('dragstart', (e) => {
+    setTimeout(() => (draggable.style.display = 'none'), 0);
+    draggable.classList.add('dragging');
+  });
 
-containers2.addEventListener('dragover', dragOver);
-containers2.addEventListener('dragenter', dragEnter);
-containers2.addEventListener('dragleave', dragLeave);
-containers2.addEventListener('drop', Drop);
+  draggable.addEventListener('dragend', (e) => {
+    setTimeout(() => (draggable.style.display = 'block'), 0);
+    draggable.classList.remove('dragging');
+  });
+});
 
-containers3.addEventListener('dragover', dragOver);
-containers3.addEventListener('dragenter', dragEnter);
-containers3.addEventListener('dragleave', dragLeave);
-containers3.addEventListener('drop', Drop);
+containers.forEach((container) => {
+  container.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(container, e.clientY);
+    const draggable = document.querySelector('.dragging');
+    if (afterElement == null) {
+      container.appendChild(draggable);
+    } else {
+      container.insertBefore(draggable, afterElement);
+    }
+  });
+});
 
-function dragOver(e) {
-  e.preventDefault();
-}
-function dragEnter(e) {
-  e.preventDefault();
-}
-function dragLeave(e) {
-  e.preventDefault();
-}
-function Drop() {
-  this.append(dragItem);
-}
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll('.draggable:not(.dragging)'),
+  ];
 
-//Event listeners for draggables
-
-for (const draggable of draggables) {
-  draggable.addEventListener('dragstart', dragStart);
-  draggable.addEventListener('dragend', dragEnd);
-}
-
-function dragStart() {
-  dragItem = this;
-  console.log(dragItem);
-  setTimeout(() => (this.style.display = 'none'), 0);
-}
-
-function dragEnd() {
-  dragItem = null;
-  setTimeout(() => (this.style.display = 'block'), 0);
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
 }
