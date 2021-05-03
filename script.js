@@ -18,11 +18,14 @@ containers.forEach((container) => {
     e.preventDefault();
     const afterElement = getDragAfterElement(container, e.clientY);
     const draggable = document.querySelector('.dragging');
-    if (afterElement == null) {
-      container.appendChild(draggable);
-    } else {
-      container.insertBefore(draggable, afterElement);
+    function append() {
+      if (afterElement == null) {
+        container.appendChild(draggable);
+      } else {
+        container.insertBefore(draggable, afterElement);
+      }
     }
+    setTimeout(append, 100);
   });
 });
 
