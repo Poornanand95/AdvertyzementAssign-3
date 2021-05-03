@@ -3,12 +3,12 @@ const containers = document.querySelectorAll('.container');
 
 draggables.forEach((draggable) => {
   draggable.addEventListener('dragstart', (e) => {
-    setTimeout(() => (draggable.style.display = 'none'), 0);
+    setTimeout(() => (draggable.style.opacity = '0.5'), 0);
     draggable.classList.add('dragging');
   });
 
   draggable.addEventListener('dragend', (e) => {
-    setTimeout(() => (draggable.style.display = 'block'), 0);
+    setTimeout(() => (draggable.style.opacity = '1'), 0);
     draggable.classList.remove('dragging');
   });
 });

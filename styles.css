@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -15,47 +19,51 @@ body {
   margin: 1rem;
   border: none;
 
-  width: 12rem;
+  width: 16rem;
   align-content: center;
   background-color: rgb(230, 219, 219);
+
 }
 
-.to-do {
-  padding: 8px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: rgb(94, 94, 212);
-}
-.working {
-  padding: 8px;
-  text-align: center;
-  font-size: 12px;
-  color: white;
-  background-color: rgb(241, 107, 58);
-}
+.to-do,
+.working,
 .done {
   padding: 8px;
   text-align: center;
-  font-size: 12px;
+  font-size: 1.25rem;
   color: white;
+
+}
+
+.to-do {
+  background-color: rgb(94, 94, 212);
+}
+
+.working {
+  background-color: rgb(241, 107, 58);
+}
+
+.done {
   background-color: rgb(21, 160, 21);
 }
 
 .container {
   padding: 4px;
-  height: 180px;
+  height: 20rem;
   overflow: scroll;
 }
+
 .draggable {
-  padding: 9px;
+  padding: 0.75rem;
   background-color: white;
-  margin: 4px;
-  font-size: 10px;
+  margin: .25rem;
+  font-size: 1rem;
 }
 
 .draggable:hover {
-  background-color: rgb(250, 248, 248);
-  transition: ease-in;
-  cursor: pointer;
+cursor: grab;
+}
+
+.dragging {
+  background-color: rgb(209, 203, 203);
 }
