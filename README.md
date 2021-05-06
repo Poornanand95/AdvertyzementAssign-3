@@ -5,3 +5,7 @@
 
 Event listeners are used to know which draggable element is selected at which container it is being dragging over.
 Position of pointer and elements are compared using getBoundingClientRect function to decide the position for appending child (className = 'dragging')
+
+## Link pf Github page
+
+https://poornanand95.github.io/AdvertyzementAssign-3/
