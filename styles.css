@@ -38,11 +38,11 @@ input{
   border: none;
   color: antiquewhite;
   background-color: rgb(79, 142, 145);
+  transition: 300ms;
 }
 
 .add-btn:hover{
   background-color: rgb(45, 83, 85);
-  font-size: 1.5rem;
   cursor: pointer;
 }
 .wrapper-list {
