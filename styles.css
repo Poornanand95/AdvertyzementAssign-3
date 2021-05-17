@@ -5,6 +5,7 @@ html {
 
 body{
   background-color:rgb(199, 184, 184)
+    background-image: url(./todobackground.jpg);
 }
 
 h2{
@@ -14,7 +15,7 @@ h2{
 .outer-container{
   
   padding: 1rem;
-  background-image: url(./todobackground.jpg);
+  
   background-position-y: -10rem;
   background-size: cover;
   display: flex;
