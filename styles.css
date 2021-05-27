@@ -6,6 +6,8 @@ html {
 body{
   background-color:rgb(199, 184, 184);
     background-image: url(./todobackground.jpg);
+    background-position-y: -10rem;
+    background-size: cover;
 }
 
 h2{
@@ -16,8 +18,6 @@ h2{
   
   padding: 1rem;
   
-  background-position-y: -10rem;
-  background-size: cover;
   display: flex;
   justify-content: center;
   flex-direction: column;
