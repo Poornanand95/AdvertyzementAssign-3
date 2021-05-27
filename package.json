@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "node-modules": "^1.0.1",
+    "start": "^5.1.0"
+  },
+  "name": "drag-drop-to-do-list",
+  "description": "Event listeners are used to know which draggable element is selected at which container it is being dragging over.\r Position of pointer and elements are compared using getBoundingClientRect function to decide the position for appending child (className = 'dragging')",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Poornanand95/Drag-Drop-To-do-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Poornanand95/Drag-Drop-To-do-list/issues"
+  },
+  "homepage": "https://github.com/Poornanand95/Drag-Drop-To-do-list#readme"
+}
